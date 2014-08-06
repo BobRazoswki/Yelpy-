@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yelp burgers API</title>
+</head>
+
+<body>
+<form id="getfood">
+	<input name="search" type="text" placeholder="food?">
+	<button type="submit" id="submit">Submit</button>
+</form>
+
+
+<script type="text/javascript" src="/jQuery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/jQuery/getburger.js"></script>
+<script>
+	showRestaurant('<%= @results.businesses[0].to_json.gsub("'", "") %>');
+</script>
+
+</body>
+
+</html>

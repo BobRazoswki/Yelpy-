@@ -1,19 +1,11 @@
 function showRestaurant(restaurant) {
-	var displayRestaurant = restaurant.is_claimed
-
-	document.write(displayRestaurant)
-}
-function showRestaurants(restaurants) {
-	for(restaurant in restaurants) {
-		showRestaurant(restaurants[restaurant]);	
-	}
+	$('#results').append("<p>"+ restaurant.name +"</p>");
 	
 }
 
-//$( document ).ready(function() {
-   
-
-
-
-
-//});
+function showRestaurants(restaurants) {	
+	$(restaurants).each(function(index) {
+		showRestaurant(restaurants[index]);
+	});
+	
+};

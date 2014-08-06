@@ -7,6 +7,7 @@ class Yelpy < Sinatra::Base
 	set :public_folder, Proc.new { File.join(root, "public") }
 
 	get '/' do
+
 		client = Yelp::Client.new({ consumer_key: "87W8_iswak1PkyuVaW3Hdg",
                             consumer_secret: "eMxki9ls2zG7OsZOKgQJ6gjJYeA",
                             token: "ldMcpmVFzYRsRYXTnOsHoawDx9maluHA",

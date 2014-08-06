@@ -13,9 +13,12 @@
 
 <script type="text/javascript" src="/jQuery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="/jQuery/getburger.js"></script>
-<script>
-	showRestaurant('<%= @results.businesses[0].to_json.gsub("'", "") %>');
-</script>
+
+<% if @results %>
+	<script>
+		showRestaurants(<%=@results %>);
+	</script>
+<% end %>
 
 </body>
 

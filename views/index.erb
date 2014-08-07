@@ -21,9 +21,10 @@
     	</div>
   </article>
 
+
 </section>
 
-<template id='searchForm'>
+  <template id='searchForm'>
 	<form id="getfood">
 		<input name="search" id="search" type="text" placeholder="food?">
 		<input id="address" type="hidden" value="{{ location }}{{ city }}">
@@ -60,6 +61,10 @@
 <script type="text/javascript" src="/jQuery/jquery-2.1.1.min.js">       </script>
 <script type="text/javascript" src="/javascript/mustache.js">           </script>
 <script id="template" type="text/javascript" src="/jQuery/getburger.js"></script>
+
+<script>
+	showSearchForm();
+</script>
 
 <% if @results %>
 	<script>

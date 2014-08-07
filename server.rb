@@ -16,7 +16,7 @@ register Sinatra::Partial
                           })
 
 		if params[:search]
-			@results = client.search('London', term: params[:search]).businesses.to_json
+			@results = client.search('london', term: params[:search]).businesses.to_json
 		end
 
     erb :index

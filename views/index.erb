@@ -7,12 +7,10 @@
 
 <body>
 
-<form id="getfood">
-	<input name="search" id="search" type="text" placeholder="food?">
-	<button type="submit" id="submit">Submit</button>
-</form>
 
 <section id="page">
+	<article id='form'>
+	</article>
 
 	<article id='restaurant-container'>
 	</article>
@@ -24,6 +22,14 @@
   </article>
 
 </section>
+
+<template id='searchForm'>
+	<form id="getfood">
+		<input name="search" id="search" type="text" placeholder="food?">
+		<input id="address" type="hidden" value="{{ location }}{{ city }}">
+		<a href='#' id="geoCodeNow" value="Geocode">Submit</a>
+	</form>
+</template>
 
 <template id="restaurant-information">
 	<article>
@@ -38,14 +44,16 @@
 			<aside>
 				<img src="{{ image_url }}">
 			</aside>
+			<footer>
+				<form>
+	      	<input id="{{id}}" type="button" data-location="{{ location }}{{ city }}" value="Geocode">
+	    </form>
+			</footer>
 	</article>
 </template>
 
 <template id="map-information">
-    	<div id="panel">
-	     	<input id="address" type="hidden" value="{{ location }}{{ city }}">
-	      <input type="button" value="Geocode" onclick="codeAddress()">
-   		</div>
+    	
 
 </template>
 
@@ -55,7 +63,7 @@
 
 <% if @results %>
 	<script>
-		showRestaurants(<%= @results %>);
+		init(<%= @results %>);
 	</script>
 <% end %>
 

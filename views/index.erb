@@ -34,17 +34,20 @@
 
 <template id="restaurant-information">
 	<article>
-		<section>
-			<img src ="{{ restaurant.rating_img_url_small }}"> 
-					{{ name }} 
-				 	{{ url }} 
-				 	{{ display_phone }}
-				  {{ snippet_text }}
-				  {{ location }}
-		</section>
-			<aside>
+				<aside>
 				<img src="{{ image_url }}">
 			</aside>
+		<section>
+			<img src ="{{ restaurant.rating_img_url_small }}"> 
+					<h2>{{ name }} </h2>
+					<ul>
+				 	<li>{{ url }} </li>
+				 	<li>{{ display_phone }}</li>
+				  <li>{{ snippet_text }}</li>
+			<!-- 	  {{ location }} -->
+				</ul>
+		</section>
+	
 			<footer>
 				<form>
 	      	<input id="{{id}}" type="button" data-location="{{ location }}{{ city }}" value="Geocode">

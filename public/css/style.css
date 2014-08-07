@@ -12,3 +12,23 @@ width: 49%;
 height: 100%;
 display: inline-block;
 }
+
+ul{
+	list-style: none;
+}
+
+aside {
+float: right;
+padding-right: 7%;
+padding-top: 7%;
+}
+
+ul {
+list-style: none;
+width: 72%;
+}
+
+article#form {
+position: absolute;
+padding-left: 20%;
+}

@@ -1,23 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Yelp burgers API</title>
+<title>Yelpy !!!</title>
+<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
+
 <form id="getfood">
 	<input name="search" id="search" type="text" placeholder="food?">
 	<button type="submit" id="submit">Submit</button>
 </form>
 
-<article id="results">  </article>
+<section id="page">
 
-<script type="text/javascript" src="/jQuery/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/jQuery/getburger.js"></script>
+	<article id='restaurant-container'>
+	</article>
+
+	<article id='map-container'>  
+		<%= partial :geocoder %> 
+	    <div id="map-canvas">
+    	</div>
+  </article>
+
+</section>
+
+<template id="restaurant-information">
+	<article>
+		<section>
+			<img src ="{{ restaurant.rating_img_url_small }}"> 
+					{{ name }} 
+				 	{{ url }} 
+				 	{{ display_phone }}
+				  {{ snippet_text }}
+				  {{ location }}
+		</section>
+			<aside>
+				<img src="{{ image_url }}">
+			</aside>
+	</article>
+</template>
+
+<template id="map-information">
+    	<div id="panel">
+	     	<input id="address" type="hidden" value="{{ location }}{{ city }}">
+	      <input type="button" value="Geocode" onclick="codeAddress()">
+   		</div>
+
+</template>
+
+<script type="text/javascript" src="/jQuery/jquery-2.1.1.min.js">       </script>
+<script type="text/javascript" src="/javascript/mustache.js">           </script>
+<script id="template" type="text/javascript" src="/jQuery/getburger.js"></script>
 
 <% if @results %>
 	<script>
-		showRestaurants(<%=@results %>);
+		showRestaurants(<%= @results %>);
 	</script>
 <% end %>
 

@@ -1,11 +1,12 @@
 require 'sinatra'
 require 'yelp'
+require 'sinatra/partial'
 
 class Yelpy < Sinatra::Base
 
 	set :views, Proc.new { File.join(root, "views") }
 	set :public_folder, Proc.new { File.join(root, "public") }
-
+register Sinatra::Partial
 	get '/' do
 
 		client = Yelp::Client.new({ consumer_key: "87W8_iswak1PkyuVaW3Hdg",
@@ -19,6 +20,10 @@ class Yelpy < Sinatra::Base
 		end
 
     erb :index
+  end
+
+  get '/geocoder' do
+    erb :geocoder
   end
 
   # start the server if ruby file executed directly
